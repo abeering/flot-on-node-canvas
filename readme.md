@@ -15,11 +15,9 @@ There are some necessary changes for use in node-canvas, a quick example:
     require('jsdom').env({
         html: '<html><body></body></html>', // URL or markup required
         scripts: [
-            // can't use jQuery 1.7+, atm, b/c of https://github.com/NV/CSSOM/issues/29
-            'frontendjs/jquery-1.6.4.min.js',
+            'jquery-1.6.4.min.js',
             // Flot 0.7 patched to support node-canvas
-            //'frontendjs/jquery.flot-on-node.js'
-            'frontendjs/jquery.flot.js'
+            'jquery.flot.js'
         ],
         done: function (errors, window)
         {
@@ -33,7 +31,6 @@ There are some necessary changes for use in node-canvas, a quick example:
             // differences from typical flot usage
             // jQuery (loaded via jsdom) can't determine element dimensions, so:
             // width and height options are required
-            var options = req.plot_options;
             // we can just use a stub jQuery object
             var $placeholder = $('div');
             $placeholder.css('width',450);
